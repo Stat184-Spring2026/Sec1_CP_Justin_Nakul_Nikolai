@@ -1,4 +1,4 @@
-# Project Title
+# Stat 184 Project: Crime Data Analysis in Los Vegas (2020 - 2024)
 
 Write a 1-2 sentences that quickly and clearly convey what your repo is for.
 
@@ -26,7 +26,9 @@ Use this section to explain the structure of your repo. This should help visitor
 ## Authors
 
 The authors of this project are Justin Kim, Nakul Bahatia, and Nikolai Cupid, Stat 184 students from Pennsylvania State University. 
-Please reach out to these emails if you have any questions or concerns about this project: 
-Justin Kim: [jlk6573@psu.edu] (mailto:jlk6573@psu.edu)
-Nakul Bhatia: [nzb5553@psu.edu] (mailto:nzb5553@psu.edu)
-Nikolai Cupid: [nac5878@psu.edu] (mailto:nac5878@psu.edu)
+
+Justin Kim: [jlk6573@psu.edu](mailto:jlk6573@psu.edu)
+Nakul Bhatia: [nzb5553@psu.edu](mailto:nzb5553@psu.edu)
+Nikolai Cupid: [nac5878@psu.edu](mailto:nac5878@psu.edu)
+
+Please reach out to these emails if you have any questions or concerns about this project.
