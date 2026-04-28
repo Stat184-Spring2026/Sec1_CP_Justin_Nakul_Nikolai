@@ -1,6 +1,6 @@
 library(tidyverse)
 
-crimeRaw <- read.csv("/Users/nakulbhatia/Downloads/Crime_Data_from_2020_to_2024.csv")
+crimeRaw <- read.csv("Crime_Data_from_2020_to_2024.csv")
 
 View(crimeRaw)
 
