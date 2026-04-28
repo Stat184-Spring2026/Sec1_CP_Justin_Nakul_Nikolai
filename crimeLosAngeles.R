@@ -66,7 +66,7 @@ crimeHollywood_filtered <- crimeHollywood_filtered %>%
 crimeHollywood_filtered <- crimeHollywood_filtered %>%
   filter(Victim_Sex %in% c("M", "F")) %>%
   mutate(
-    victim_sex = recode(Victim_Sex,
+    Victim_Sex = recode(Victim_Sex,
                         "M" = "Male",
                         "F" = "Female")
   )
