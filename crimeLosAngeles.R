@@ -25,18 +25,7 @@ crimeHollywood_filtered <- crimeHollywood_filtered %>%
   )
 
 crimeHollywood_filtered <- crimeHollywood_filtered %>%
-  mutate(
-    Time = sprintf("%04d", TIME.OCC),  # ensures 4 digits
-    Time = sub("(\\d{2})(\\d{2})", "\\1:\\2", time)
-  )
-crimeHollywood_filtered <- crimeHollywood_filtered %>%
   select(-TIME.OCC)
-
-crimeHollywood_filtered <- crimeHollywood_filtered %>%
-  select(-time)
-
-crimeHollywood_filtered <- crimeHollywood_filtered %>%
-  select(-Time)
 
 unique(crimeHollywood_filtered$Crm.Cd.Desc)
 
@@ -70,3 +59,6 @@ crimeHollywood_filtered <- crimeHollywood_filtered %>%
 
 crimeHollywood_filtered <- crimeHollywood_filtered %>%
   select(-Crime_Type)
+
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  rename(Crime_Category = crime_category)
