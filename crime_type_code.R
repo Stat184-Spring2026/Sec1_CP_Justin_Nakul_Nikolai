@@ -17,7 +17,8 @@ crime_type_table_wide <- crimeHollywood_filtered %>%
   ) %>%
   rename(
     `Crime Category` = Crime_Category,
-    ''
+    `2020 Crimes` = `2020`,
+    `2024 Crimes` = `2024`
   ) %>%
   arrange(`Crime Category`)
 
@@ -26,7 +27,7 @@ View(crime_type_table_wide)
 crime_type_table_formatted <- crime_type_table_wide %>%
   kable(
     caption = "Crime Categories in Hollywood: 2020 vs 2024",
-    align = "lrr",
+    align = "lcc",
     row.names = FALSE
   ) %>%
   kable_classic(
