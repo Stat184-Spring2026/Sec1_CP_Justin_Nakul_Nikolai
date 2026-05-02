@@ -16,7 +16,7 @@ crime_type_graph_data <- crimeHollywood_filtered %>%
 
 # Step 3: Create a wide-format summary table for viewing crime categories by year
 
-# Step 3a: Start with the cleaned Hollywood crime data se
+# Step 3a: Start with the cleaned Hollywood crime data set
 crime_type_table_wide <- crimeHollywood_filtered %>%
   # Step 3b: Group the data by crime category and year
   group_by(Crime_Category, Year) %>%
