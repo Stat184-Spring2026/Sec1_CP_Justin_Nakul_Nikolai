@@ -38,8 +38,6 @@ crime_age_table_2020 <- age_table_2020 %>%
     font_size = 12
   )
 
-crime_age_table_2020
-
 #Step 4: creates 2024 table with age range and number of victims in that age range
 age_table_2024 <- crimeHollywood_ages_filtered %>%
   filter(Year == 2024) %>%
@@ -60,6 +58,8 @@ crime_age_table_2024 <- age_table_2024 %>%
     font_size = 12
   )
 
+#Step 6: Display the tables
+crime_age_table_2020
 crime_age_table_2024
 
 #Goal 2: Create 2 separate bar charts for 2020 and 2024. The x axis will be
@@ -71,7 +71,8 @@ library(ggplot2)
 
 #Step 1a: Create a plot with the x axis being the age range and y axis being the
 #number of victims
-ggplot(age_table_2020, aes(x = Age_Range, y = Victim_Count)) +
+crime_age_plot_2020 <- ggplot(
+  age_table_2020, aes(x = Age_Range, y = Victim_Count)) +
   #Step 1b: Creates the bars from the values in victim_count
   geom_col(fill = c("#BC2048")) +
   #Step 1c: Creates the title and renames the x and y axes
@@ -84,7 +85,8 @@ ggplot(age_table_2020, aes(x = Age_Range, y = Victim_Count)) +
 
 #Step 2: Create a bar chart for the 2024 victim age distribution following same
 #steps as above for Step 1
-ggplot(age_table_2024, aes(x = Age_Range, y = Victim_Count)) +
+crime_age_plot_2024 <- ggplot(
+  age_table_2024, aes(x = Age_Range, y = Victim_Count)) +
   geom_col(fill = c("#1E407C")) +
   labs(
     title = "Victim Age Distribution (2024)",
@@ -93,6 +95,9 @@ ggplot(age_table_2024, aes(x = Age_Range, y = Victim_Count)) +
   ) +
   theme_minimal()
 
+#Step 3: Display box plots
+crime_age_plot_2020
+crime_age_plot_2024
 
 
 

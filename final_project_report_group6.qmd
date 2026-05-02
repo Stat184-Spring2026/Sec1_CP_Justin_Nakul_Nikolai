@@ -16,10 +16,252 @@ execute:
 
 ### FAIR and CARE Principles
 
+**FAIR**
+
+The crime in Los Angeles data set satisfies the many FAIR principles. It's easily *findable* and *accessible* here   <https://catalog.data.gov/dataset/crime-data-from-2020-to-present?from_hint=eyJzb3J0IjoicG9wdWxhcml0eSJ9>. The data is easily *interpretable* as you can download the data in the CSV format with properly labeled columns and rows making it easy to read. The only issue is *reusability* as some cells were empty or had invalid entries (such as 0 for age).
+
+**CARE**
+
+The crime in Los Angeles data set does not single out any specific community/group of people. The data can be a *collective benefit* to these communities. But, others can use this data set to push harmful and damaging narratives about the communities who are affected by these crimes. Unfortunatley, these communities do not have the *authority* to control how the data is used. We did not use the data in any such way and understand the *responsibility* and *ethics* we must have using this data. 
+
 ## Case and Attribute Description
 
 ## Explortory Data Analysis
 
+```{r}
+#| label: nakul-datatidying
+#| message: false
+#| warning: false
+#| include: false
+# Los Angeles Crime Data Tidying
+## Import and clean 2020-2025 Los Angeles crime data for crime trend analysis by month, type of crime, and victim age
+# Style Guide: Tidyverse Style Guide
+# Primary Author: Nakul Bhatia
+# Reviewed by: Justin Kim
+
+# Step 1: Load packages needed for data wrangling
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+
+# Step 2: Import the raw crime data set and view it
+crimeRaw <- read.csv("Crime_Data_from_2020_to_2024.csv")
+
+View(crimeRaw)
+
+# Step 3: Select only the variables needed for this project
+crimeTidy <- crimeRaw %>%
+  select(DATE.OCC, AREA.NAME, Crm.Cd.Desc, Vict.Age, Vict.Sex)
+
+# Step 4: Filter the data set to only include crimes that occurred in Hollywood
+crimeHollywood <- crimeTidy %>%
+  filter(AREA.NAME == "Hollywood")
+
+# Step 5: Convert the data column into a dat-time format and keep only entries from 2020 and 2024
+crimeHollywood$DATE.OCC <- as.POSIXct(crimeHollywood$DATE.OCC, format = "%m/%d/%Y %I:%M:%S %p")
+crimeHollywood_filtered <- crimeHollywood %>%
+  filter(format(DATE.OCC, "%Y") %in% c("2020", "2024"))
+
+# Step 6: Clean the data by removing incomplete or invalid victim information
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  filter(
+    complete.cases(.),        # removes any NA
+    Vict.Age != 0,            # remove age = 0
+    Vict.Sex != "X",          # remove invalid sex
+    Vict.Age != "",           # remove empty strings (if stored as text)
+    Vict.Sex != ""
+  )
+
+# Step 7: Check the unique crime descriptions before grouping crimes into broader categories
+unique(crimeHollywood_filtered$Crm.Cd.Desc)
+
+# Step 8: Create separate year and month columns from the date column
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  mutate(
+    Year = year(DATE.OCC),
+    Month = month(DATE.OCC)
+  )
+
+# Step 9: Remove the original date column which is no longer needed after extracting the year and month
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  select(-DATE.OCC)
+
+# Step 10: Rename columns to make the data set more readable
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  rename(
+    Area = AREA.NAME,
+    Crime_Type = Crm.Cd.Desc,
+    Victim_Age = Vict.Age,
+    Victim_Sex = Vict.Sex
+  )
+
+# Step 11: Group detailed crime descriptions into broader crime categories and creating a separate column for the broader categories 
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  mutate(crime_category = case_when(
+    grepl("BURGLARY", Crime_Type) ~ "Burglary",
+    grepl("THEFT", Crime_Type) ~ "Theft",
+    grepl("ASSAULT", Crime_Type) ~ "Assault",
+    grepl("ROBBERY", Crime_Type) ~ "Robbery",
+    grepl("VANDALISM", Crime_Type) ~ "Vandalism",
+    TRUE ~ "Other"
+  ))
+
+# Step 12: Remove the detailed crime type column after creating the broader category
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  select(-Crime_Type)
+
+# Step 13: Rename the new crime category column to keep consistent with other columns
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  rename(Crime_Category = crime_category)
+
+# Step 14: Keep only male and female victim record and recode the labels for readability
+crimeHollywood_filtered <- crimeHollywood_filtered %>%
+  filter(Victim_Sex %in% c("M", "F")) %>%
+  mutate(
+    Victim_Sex = recode(Victim_Sex,
+                        "M" = "Male",
+                        "F" = "Female")
+  )
+
+```
+
+##Victim Age Demographics
+
+In this section, we want to explore and compare the amount victims in every age range from 2020 to 2024.
+
+These ranges will go from 1-10, 11-20, and all the way until 91-100. We need to create separate tables for both 2020 and 2024. We want to create a neat tables that filter out every column from the original tidied table besides the year, the victim's age range, and create a new column with the amount of total victim's within that age range. 
+
+```{r}
+#| label: nikolai-victimdemographictables
+#| message: false
+#| warning: false
+#| include: false
+# Victim Age Demographic Tables in Hollywood
+## Create new tables showing the amount of victims per age range (0-10, 11-20, etc.) for 2020 and 2024
+# Style Guide: Tidyverse Style Guide
+# Primary Author: Nikolai Cupid
+# Reviewed by: Nakul Bhatia
+
+#Goal 1: Create 2 separate tables for 2020 and 2024. These tables will 
+#include both age ranges (1-10, 11-20, etc.) and the number of victims per 
+#that age range
+
+library(kableExtra)
+
+#Step 1: Create a table that changes the age column into the age range it's in
+crimeHollywood_ages_filtered <- crimeHollywood_filtered %>%
+  mutate(Age_Range = cut (
+    Victim_Age,
+    #Step 1a: splits age into bins of 0-10, 11-20, all the way to 100
+    breaks = seq(0, 100, by = 10),
+    #Step 1b: assigns the readable table values
+    labels = c("1-10", "11-20", "21-30", "31-40", "41-50", 
+               "51-60", "61-70", "71-80", "81-90", "90-100"),
+    include.lowest = TRUE
+  ))
+
+#Step 2: creates 2020 table with age range and number of victims in that age range
+age_table_2020 <- crimeHollywood_ages_filtered %>%
+  filter(Year == 2020) %>%
+  group_by(Age_Range) %>%
+  summarise(Victim_Count = n())
+
+#Step 3: creates a neater version of the above table using kableExtra
+crime_age_table_2020 <- age_table_2020 %>%
+  kable(
+    #Step 3a: Gives the table a header
+    caption = "Victim Age Range Distribution (2020)",
+    col.names = c("Age Range", "Number of Victims"),
+    align = "lr",
+    row.names = FALSE
+  ) %>%
+  
+  #Step 3b: add stripes and change font size to give a cleaner look  
+  kable_classic(
+    lightable_options = "striped",
+    font_size = 12
+  )
+
+#Step 4: creates 2024 table with age range and number of victims in that age range
+age_table_2024 <- crimeHollywood_ages_filtered %>%
+  filter(Year == 2024) %>%
+  group_by(Age_Range) %>%
+  summarise(Victim_Count = n())
+
+#Step 5: creates a neater version of the above table using kableExtra
+crime_age_table_2024 <- age_table_2024 %>%
+  kable(
+    caption = "Victim Age Range Distribution (2024)",
+    col.names = c("Age Range", "Number of Victims"),
+    align = "lr",
+    row.names = FALSE
+  ) %>%
+  
+  kable_classic(
+    lightable_options = "striped",
+    font_size = 12
+  )
+
+#Step 6: Display the tables
+crime_age_table_2020
+crime_age_table_2024
+
+```
+
+Now, we will take the information from the above tables and use them to create visualizations.
+
+We will create separate box plots for 2020 and 2024. The x-axis will have be the age ranges from 1-10 all the way to 91-100. The y-axis will be the amount of victims of crimes within that age range. The 2020 box plot is red and the 2024 box plot is blue.
+
+```{r}
+#| label: nikolai-victimdemographicplots
+#| message: false
+#| warning: false
+#| include: false
+# Victim Age Demographic Plots in Hollywood
+## Create new data visualizations showing the amount of victims per age range (0-10, 11-20, etc.) for 2020 and 2024
+# Style Guide: Tidyverse Style Guide
+# Primary Author: Nikolai Cupid
+# Reviewed by: Justin Kim
+
+#Goal 2: Create 2 separate bar charts for 2020 and 2024. The x axis will be
+#the age ranges while the y axis will be the number of victims in that age range
+
+library(ggplot2)
+
+#Step 1: Create a bar chart for the 2020 victim age distribution
+
+#Step 1a: Create a plot with the x axis being the age range and y axis being the
+#number of victims
+crime_age_plot_2020 <- ggplot(
+  age_table_2020, aes(x = Age_Range, y = Victim_Count)) +
+  #Step 1b: Creates the bars from the values in victim_count
+  geom_col(fill = c("#BC2048")) +
+  #Step 1c: Creates the title and renames the x and y axes
+  labs(
+    title = "Victim Age Distribution (2020)",
+    x = "Age Range",
+    y = "Number of Victims"
+  ) +
+  theme_minimal()
+
+#Step 2: Create a bar chart for the 2024 victim age distribution following same
+#steps as above for Step 1
+crime_age_plot_2024 <- ggplot(
+  age_table_2024, aes(x = Age_Range, y = Victim_Count)) +
+  geom_col(fill = c("#1E407C")) +
+  labs(
+    title = "Victim Age Distribution (2024)",
+    x = "Age Range",
+    y = "Number of Victims"
+  ) +
+  theme_minimal()
+
+#Step 3: Display box plots
+crime_age_plot_2020
+crime_age_plot_2024
+```
+
+From: 
 ## Conclusion
 
 ## Author Contribution
