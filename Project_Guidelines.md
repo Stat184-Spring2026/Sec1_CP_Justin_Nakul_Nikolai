@@ -35,32 +35,32 @@ Checkpoints #1-#5 must be completed __*in person*__.
 
 The following checklist provides your team with an expanded listing of all elements necessary in your group project. You can keep track of what you have and have yet to complete by editing this file and placing an x inside of the square brackets at the start of each item (i.e., [x]).
 
-- [ ] Read through the Project Guidelines.
-- [ ] Form a team with 1-2 other individuals in your section of Stat 184.
-- [ ] Complete Checkpoint #1 and make a team contract.
-- [ ] Create (and update) a detailed plan for your project.
-  - [ ] Place a copy of your plan in your repo.
-- [ ] Brainstorm what you're interested in exploring and look for potential data sources. (See the [Data and Topics](#data-and-topics) for resources.)
-- [ ] Locate appropriate data sources for your project. See the [Data Requirements](#data-requirements) section for important restrictions.
-- [ ] Create a repo using the template repo. Name your repo `Sec#_CP_Name1_Name2_Name3` where `Sec#` is your section of Stat184 (i.e., `Sec1`, `Sec2`, `Sec4`, or `Sec5`) and `Name#` is replaced with the names of each team member.
-  - [ ] The owner of the repo should be `Stat184-Spring2026`. 
-  - [ ] Make sure that each team member has access to the repo.
-- [ ] Use GitHub appropriately.
-  - [ ] Have a proper README file for the repo.
-  - [ ] Each member must have at least five (5) commits with appropriate subjects/messages.
-  - [ ] The team should use the Issues feature regularly and appropriately.
-  - [ ] The team should use branches; there should be at least a main branch and one "dev" branch for each team member.
-  - [ ] The team should appropriately use Pull Requests to merge branches; one member should make the Pull Request while another should review and approve the request.
-- [ ] Read in your data and perform any necessary data tidying, wrangling, and cleaning.
+- [X] Read through the Project Guidelines.
+- [X] Form a team with 1-2 other individuals in your section of Stat 184.
+- [X] Complete Checkpoint #1 and make a team contract.
+- [X] Create (and update) a detailed plan for your project.
+  - [X] Place a copy of your plan in your repo.
+- [X] Brainstorm what you're interested in exploring and look for potential data sources. (See the [Data and Topics](#data-and-topics) for resources.)
+- [X] Locate appropriate data sources for your project. See the [Data Requirements](#data-requirements) section for important restrictions.
+- [X] Create a repo using the template repo. Name your repo `Sec#_CP_Name1_Name2_Name3` where `Sec#` is your section of Stat184 (i.e., `Sec1`, `Sec2`, `Sec4`, or `Sec5`) and `Name#` is replaced with the names of each team member.
+  - [X] The owner of the repo should be `Stat184-Spring2026`. 
+  - [X] Make sure that each team member has access to the repo.
+- [X] Use GitHub appropriately.
+  - [X] Have a proper README file for the repo.
+  - [X] Each member must have at least five (5) commits with appropriate subjects/messages.
+  - [X] The team should use the Issues feature regularly and appropriately.
+  - [X] The team should use branches; there should be at least a main branch and one "dev" branch for each team member.
+  - [X] The team should appropriately use Pull Requests to merge branches; one member should make the Pull Request while another should review and approve the request.
+- [X] Read in your data and perform any necessary data tidying, wrangling, and cleaning.
 - [ ] Conduct Exploratory Data Analysis.
   - [ ] Set the stage for your analysis (i.e., prepare an introduction on your topic).
   - [ ] Describe the data provenance; see See the [Data Requirements](#data-requirements) for additional information.
   - [ ] Explain how the data satisfy (or not) both the FAIR and CARE principles.
   - [ ] Describe what attributes you'll focus your analysis on (mention if they are part of your data sets or if you created them out of your data sets).
-  - [ ] Create multiple data visualizations (tables and figures) that assist both the team and readers in understanding the data.
-    - [ ] Data visualizations should show a variety of your skills and geometries.
-    - [ ] Each team member should be the main author behind __at least one__ professional looking table (__not__ a raw data table).
-    - [ ] Each team member should be the main author behind __at least one__ professional looking plot/graph. The plots/graphs should not all be the same kind of plot/graph.
+  - [X] Create multiple data visualizations (tables and figures) that assist both the team and readers in understanding the data.
+    - [X] Data visualizations should show a variety of your skills and geometries.
+    - [X] Each team member should be the main author behind __at least one__ professional looking table (__not__ a raw data table).
+    - [X] Each team member should be the main author behind __at least one__ professional looking plot/graph. The plots/graphs should not all be the same kind of plot/graph.
 - [ ] Prepare a reproducible report.
   - [ ] Use a QMD file; the output type is PDF.
   - [ ] The report should be well organized with section headings.
