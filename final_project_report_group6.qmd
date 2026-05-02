@@ -1,0 +1,15 @@
+---
+title: "Hollywood Crime Pattern Analysis Report"
+author: "Nakul Bhatia, Justin Kin, Nikolai Cupid"
+format: pdf
+---
+
+## Introduction
+
+## Data Explanation
+
+## Conclusion
+
+## Code Appendix
+
+## Citations
