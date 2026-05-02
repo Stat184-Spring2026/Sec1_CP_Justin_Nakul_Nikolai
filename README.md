@@ -1,34 +1,50 @@
-# Stat 184 Project: Crime Data Analysis in Los Vegas (2020 - 2024)
+# Stat 184 Project: Crime Patterns in Hollywood 2020 vs 2024
 
-Write a 1-2 sentences that quickly and clearly convey what your repo is for.
+This repository contains final project for Stat 184 (Group 6, Section 1). It includes data visualization, data processing, and other supporting materials used to create a **reproducible analysis of crime patterns between 2020 and 2024**.
 
 ## Overview
 
-Expand on those introductory sentences with a brief but informative description of your project's purpose and goals. This section should help visitors decide whether they should dig deeper into your repo/project.
+The purpose of this project is to analyze **how crime patterns in Hollywood have changed between 2020 (COVID-19) and 2024 (Post COVID-19)**. In order to achieve this goal, we focused on analyzing victim demographic, crime types, and monthly crime counts. The results highlight key differences in crime patterns between the two years and provide insights of how crime has evolved after the pandemic.
 
-### Interesting Insight (Optional)
+### Interesting Insight
 
-This is optional but highly recommended. You'll include one interesting insight from your project as part of the README. This insight is most effective when you include a visual. Keep in mind that this visual must be included as an image file (e.g., JPG, PNG, etc.). You can export plots created with `{ggplot2}` by using the function `ggsave`.
+![Crime Categories in Hollywood: 2020 vs 2024](/Images/CrimeCategoryByYearPlot.png)
+One interesting insight from the project is that **crime rate has dropped overall in 2024 compared to 2020,** shown in graph below. This finding is somewhat counterintuitive as we initially expected that crime rate would be higher in 2024 as restrictions were lifted and public activities were increased.
+
 
 ## Data Sources and Acknowledgements
 
-Be sure to list where you got any data used within the project. Be sure to acknowledge any one whose work or elements you're drawing upon.
+The data used in this project come from the City of Los Angeles Crime Data 2020 - 2024, provided by the Los Angeles Police Department (LAPD) through Data.Gov. The data can be accessed using the following link:
+<https://catalog.data.gov/dataset/crime-data-from-2020-to-present?from_hint=eyJzb3J0IjoicG9wdWxhcml0eSJ9>
+
+We acknowledge that this is an original open access data set from LAPD.
 
 ## Current Plan
 
-Provide some information about what you intend to do with the project. You can additionally refer the visitor to your detailed plan document.
+We plan to use this project to analyze and compare crime patterns in Hollywood 2020 vs 2024, with focusing on identifying key trends and changes after the COVID-19 pandemic.
+
+Also through this project, we plan to achieve these three learning objectives:
+
+1. Develop our coding skills in R, our ability to work in groups, and to get comfortable with presenting to an audience.
+2. Effectively work and master the usage of GitHub.
+3. Take raw data and turn it into an informative plot/graph.
+
+For additional information, please refer 'Plan.md'.
 
 ## Repo Structure
 
-Use this section to explain the structure of your repo. This should help visitors quickly figure out where they should look to find certain elements. Further, you can use this space to highlight and briefly explain important/key files in the repo.
+This repository contains:
 
+- **Crime Patterns in Hollywood Quarto Report.qmd** => Source file containing code, analysis, and visualization
+- **Crime Patterns in Hollywood Quarto Report.pdf** => Final PDF version of the report
+- **Crime_Data_from_2020_to_2024.csv** => LAPD provided crime data set used for this project
+- **README.md** => Overview of the project
+- **Plan.md** => File containing plan for the project and information for setting up and maintaining the repo
+- **Images folder** => Folder containing all the png images of data visualization created from this project
+- **RCode folder** => Folder containing all the R Codes that were used for this project
 
 ## Authors
 
-The authors of this project are Justin Kim, Nakul Bahatia, and Nikolai Cupid, Stat 184 students from Pennsylvania State University. 
+The authors of this project are **Justin Kim ([jlk6573@psu.edu](mailto:jlk6573@psu.edu))**, **Nakul Bahatia ([nzb5553@psu.edu](mailto:nzb5553@psu.edu))**, and **Nikolai Cupid ([nac5878@psu.edu](mailto:nac5878@psu.edu))**, Stat 184 students from Pennsylvania State University. 
 
-Justin Kim: [jlk6573@psu.edu](mailto:jlk6573@psu.edu)
-Nakul Bhatia: [nzb5553@psu.edu](mailto:nzb5553@psu.edu)
-Nikolai Cupid: [nac5878@psu.edu](mailto:nac5878@psu.edu)
-
-Please reach out to these emails if you have any questions or concerns about this project.
+If you have any questions or concerns about this project, please feel to contact us using the link above.
