@@ -66,6 +66,7 @@ crime_age_table_2024
 #the age ranges while the y axis will be the number of victims in that age range
 
 library(ggplot2)
+library(patchwork)
 
 #Step 1: Create a bar chart for the 2020 victim age distribution
 
@@ -96,8 +97,10 @@ crime_age_plot_2024 <- ggplot(
   theme_minimal()
 
 #Step 3: Display box plots
-crime_age_plot_2020
-crime_age_plot_2024
+crime_age_plot_2020 + crime_age_plot_2024 +
+  plot_annotation(
+    title = "Victim Age Distribution Comparison (2020 vs 2024)"
+  )
 
 
 
