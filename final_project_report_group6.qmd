@@ -1,15 +1,29 @@
 ---
 title: "Hollywood Crime Pattern Analysis Report"
 author: "Nakul Bhatia, Justin Kin, Nikolai Cupid"
+date: "May. 2, 2026"
+date-modified: now
 format: pdf
+execute: 
+  echo: false
 ---
 
 ## Introduction
 
-## Data Explanation
+## Data
+
+### Data Provenance
+
+### FAIR and CARE Principles
+
+## Case and Attribute Description
+
+## Explortory Data Analysis
 
 ## Conclusion
 
-## Code Appendix
+## Author Contribution
 
-## Citations
+## References
+
+## Code Appendix
