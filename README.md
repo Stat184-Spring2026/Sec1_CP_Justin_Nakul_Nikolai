@@ -9,7 +9,7 @@ The purpose of this project is to analyze **how crime patterns in Hollywood have
 ### Interesting Insight
 
 One interesting insight from the project is that **crime rate has dropped overall in 2024 compared to 2020,** shown in graph below. This finding is somewhat counterintuitive as we initially expected that crime rate would be higher in 2024 as restrictions were lifted and public activities were increased.
-![Crime Categories in Hollywood: 2020 vs 2024](/CrimeCategoryByYearPlot.png)
+![Crime Categories in Hollywood: 2020 vs 2024](images/CrimeCategoryByYearPlot.png)
 
 ## Data Sources and Acknowledgements
 
