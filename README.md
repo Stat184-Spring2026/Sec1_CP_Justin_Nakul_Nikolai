@@ -35,13 +35,16 @@ For additional information, please refer 'Plan.md'.
 
 This repository contains:
 
-- **Crime Patterns in Hollywood Quarto Report.qmd** => Source file containing code, analysis, and visualization
-- **Crime Patterns in Hollywood Quarto Report.pdf** => Final PDF version of the report
+- **final_project_report_group6.qmd** => Source file containing report of code, analysis, and visualization
+- **final_project_report_group6.pdf** => Final PDF version of the report
 - **Crime_Data_from_2020_to_2024.csv** => LAPD provided crime data set used for this project
 - **README.md** => Overview of the project
 - **Plan.md** => File containing plan for the project and information for setting up and maintaining the repo
 - **Images folder** => Folder containing all the png images of data visualization created from this project
 - **RCode folder** => Folder containing all the R Codes that were used for this project
+- **references.bib** => File containing references in formatted to MLA9 guidelines
+- **MLA9.csl** => Specific formatting rule used for citations and references
+- **linting_script.R** => Script for code style checking
 
 ## Authors
 
