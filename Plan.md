@@ -42,7 +42,7 @@ Finally, at least one graph in png format should be uploaded into the images fol
 5. Since we have three subgoals, we'll need to task one sub goal to each member and each will create a clear and informative data tables and graphs for visualizations.
 6. We'll need to refine and improve our codes according to the PCIP method.
 7. If every codes are finalized, we'll need to create our own analysis and narration based on the results.
-8. We'll need to orepare and deliver the Work-in-Progress Presentation during class time and discuss to our classmates about our insights, challenges, data using pptx.
+8. We'll need to prepare and deliver the Work-in-Progress Presentation during class time and discuss to our classmates about our insights, challenges, data using pptx.
 9. We’ll need to create a reproducible data analysis report using a Quarto file discuss about our data and findings.
 10. We’ll need to proofread and finalize our data analysis report and export it into a PDF file.
 11. We’ll need to import all our project materials including raw data set, QMD file, png images, PDF file, and R codes etc. into our project GitHub repo.
