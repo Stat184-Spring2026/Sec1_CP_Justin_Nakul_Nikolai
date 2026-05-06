@@ -531,7 +531,7 @@ Next, a line graph was created to represent the change of trend in crime counts 
 #| fig-cap: "Graph of Monthly Crime Counts In Hollywood (2020 vs 2024)"  
 #| fig-pos: "H"
 #| fig-width: 10
-#| fig-alt: "Line chart showing monthly crime trends in Hollywood for 2020 and 2024, with higher counts in 2020."
+#| fig-alt: "Line graph showing crime counts in Hollywood for 2020 and 2024, with crime reducing in 2024."
 
 ##Goal 2: Create a line graph that analyzes and compares monthly crime trends
 ## in Hollywood between 2020 and 2024.
@@ -607,6 +607,50 @@ Overall, the results indicate that crime counts in 2024 remained relatively lowe
 
 ::: {#refs}
 :::
+
+{{< pagebreak >}}
+
+# Gen AI Appendix
+
+- Usage 1: Alt Text for Victim Demographic Graph
+
+Tool Used: Arizona State University Image Accessibility Creator Tool
+
+Access: <https://asuo-ai-labs.streamlit.app/Image_Accessibility>
+
+Date Used: 5/2/2026
+
+Prompt: Photo of the graph from @fig-victimdemographicplots
+
+Response: *Side-by-side bar charts show victim age distributions for 2020 and 2024, with both peaking at ages 21–40 and noticeably lower counts across all age groups in 2024.*
+
+
+
+- Usage 2: Alt Text for Crime Category Trend Graph
+
+Tool Used: Arizona State University Image Accessibility Creator Tool
+
+Access: <https://asuo-ai-labs.streamlit.app/Image_Accessibility>
+
+Date Used: 5/2/2026
+
+Prompt: Photo of the graph from @fig-crimeCategoryGraph
+
+Response: *Bar chart comparing crime categories in Hollywood for 2020 and 2024, showing reductions across all categories.*
+
+
+
+- Usage 3: Alt Text for Monthly Crime Counts In Hollywood Line Graph
+
+Tool used: Arizona State University Image Accessibility Creator Tool
+
+Access: <https://asuo-ai-labs.streamlit.app/Image_Accessibility>
+
+Date of Usage: 5/3/26
+
+Prompt: Photo of the graph from @fig-crimeCountGraph
+
+Response: *Line graph showing crime counts in Hollywood for 2020 and 2024, with crime reducing in 2024.*
 
 {{< pagebreak >}}
 
